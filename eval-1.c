@@ -15,7 +15,10 @@ void bop_swap(stack_t **stack, u32 lno)
 	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_SWAP, NULL);
-	prev->prev->next = top;
+	if (prev->prev != NULL)
+		prev->prev->next = top;
+	else
+		Pile->bot = top;
 	top->prev = prev->prev;
 	top->next = prev;
 	prev->prev = top;
