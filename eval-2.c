@@ -36,8 +36,7 @@ void bop_pstr(stack_t **stack, u32 lno)
 	for (; top != NULL && top->n != '\0' &&
 			 top->n >= 0 && top->n <= 127; top = top->prev)
 		printf("%c", top->n);
-	if (Pile->top == NULL)
-		printf("\n");
+	printf("\n");
 }
 
 /**
