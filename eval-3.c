@@ -11,9 +11,9 @@
  */
 void bop_div(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	i32 v = xixo_pop();
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_DIV, NULL);
 	else if (Pile->top->n == 0)
@@ -30,9 +30,9 @@ void bop_div(stack_t **stack, u32 lno)
  */
 void bop_mod(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	i32 v = xixo_pop();
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_MOD, NULL);
 	else if (Pile->top->n == 0)

@@ -14,6 +14,7 @@ static void throw_more(ERRNO errno, char *str)
 	FILE *hd = stderr;
 	u32 lno = Parser->lno;
 
+	(void) str;
 	switch (errno)
 	{
 	case ERR_BOP_ADD:

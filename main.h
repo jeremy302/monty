@@ -53,8 +53,7 @@ typedef enum ERRNO
 	ERR_BOP_MOD,
 	ERR_BOP_MODZ,
 	ERR_BOP_PCHAR_INV,
-	ERR_BOP_PCHAR_EMP,
-
+	ERR_BOP_PCHAR_EMP
 } ERRNO;
 void throw(ERRNO errno, char *str);
 

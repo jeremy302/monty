@@ -10,9 +10,9 @@
  */
 void bop_swap(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top, *prev = top->prev;
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_SWAP, NULL);
 	prev->prev->next = top;
@@ -32,9 +32,9 @@ void bop_swap(stack_t **stack, u32 lno)
  */
 void bop_rotl(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top, *bot = Pile->bot;
 
+	(void) stack, (void) lno;
 	if (top == NULL || top == bot)
 		return;
 	bot->prev = top;
@@ -54,9 +54,9 @@ void bop_rotl(stack_t **stack, u32 lno)
  */
 void bop_rotr(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top, *bot = Pile->bot;
 
+	(void) stack, (void) lno;
 	if (top == NULL || top == bot)
 		return;
 	top->next = bot;
@@ -76,9 +76,9 @@ void bop_rotr(stack_t **stack, u32 lno)
  */
 void bop_pall(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top;
 
+	(void) stack, (void) lno;
 	for (; top != NULL; top = top->prev)
 		printf("%d\n", top->n);
 }
@@ -92,9 +92,9 @@ void bop_pall(stack_t **stack, u32 lno)
  */
 void bop_pint(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top;
 
+	(void) stack, (void) lno;
 	if (top == NULL)
 		throw(ERR_BOP_PINT, NULL);
 	printf("%d\n", top->n);

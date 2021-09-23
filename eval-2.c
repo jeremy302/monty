@@ -11,9 +11,9 @@
  */
 void bop_pchar(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top;
 
+	(void) stack, (void) lno;
 	if (top == NULL)
 		throw(ERR_BOP_PCHAR_EMP, NULL);
 	else if (top->n < 0 || top->n > 127)
@@ -30,9 +30,9 @@ void bop_pchar(stack_t **stack, u32 lno)
  */
 void bop_pstr(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	stack_t *top = Pile->top;
 
+	(void) stack, (void) lno;
 	for (; top != NULL && top->n != '\0'; top = top->prev)
 		printf("%c", top->n);
 	printf("\n");
@@ -47,9 +47,9 @@ void bop_pstr(stack_t **stack, u32 lno)
  */
 void bop_add(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	i32 v = xixo_pop();
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_ADD, NULL);
 	Pile->top->n = Pile->top->n + v;
@@ -64,9 +64,9 @@ void bop_add(stack_t **stack, u32 lno)
  */
 void bop_sub(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	i32 v = xixo_pop();
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_SUB, NULL);
 	Pile->top->n = Pile->top->n - v;
@@ -81,9 +81,9 @@ void bop_sub(stack_t **stack, u32 lno)
  */
 void bop_mul(stack_t **stack, u32 lno)
 {
-	(void) stack, (void) lno;
 	i32 v = xixo_pop();
 
+	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_MUL, NULL);
 	Pile->top->n = Pile->top->n * v;
