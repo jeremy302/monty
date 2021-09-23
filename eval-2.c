@@ -16,7 +16,7 @@ void bop_pchar(stack_t **stack, u32 lno)
 	(void) stack, (void) lno;
 	if (top == NULL)
 		throw(ERR_BOP_PCHAR_EMP, NULL);
-	else if (top->n < 0 || top->n > 255)
+	else if (top->n < 0 || top->n > 127)
 		throw(ERR_BOP_PCHAR_INV, NULL);
 	printf("%c\n", top->n);
 }
@@ -33,9 +33,11 @@ void bop_pstr(stack_t **stack, u32 lno)
 	stack_t *top = Pile->top;
 
 	(void) stack, (void) lno;
-	for (; top != NULL && top->n != '\0'; top = top->prev)
+	for (; top != NULL && top->n != '\0' &&
+			 top->n >= 0 && top->n <= 127; top = top->prev)
 		printf("%c", top->n);
-	printf("\n");
+	if (Pile->top == NULL)
+		printf("\n");
 }
 
 /**
