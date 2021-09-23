@@ -66,13 +66,13 @@ i32 parse_file(FILE *handle)
 {
 	ParserInfo *info = parser_info();
 	i32 i = 0;
-	char *bop, *arg_str, ln[5001];
+	char *bop, *arg_str, ln[500001];
 
 	info->hndl = handle;
 	do {
 		++info->lno, info->arg_set = 0, info->arg = 0;
 		info->ln = NULL, info->lnlen = 0;
-		info->ln = fgets(ln, 5000, handle);
+		info->ln = fgets(ln, 500000, handle);
 		/* getline(&info->ln, &info->lnlen, handle); */
 		if (info->ln == NULL)
 			break;
