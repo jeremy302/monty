@@ -47,11 +47,12 @@ void bop_pstr(stack_t **stack, u32 lno)
  */
 void bop_add(stack_t **stack, u32 lno)
 {
-	i32 v = xixo_pop();
+	i32 v;
 
 	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_ADD, NULL);
+	v = xixo_pop();
 	Pile->top->n = Pile->top->n + v;
 }
 
