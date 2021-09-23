@@ -72,7 +72,7 @@ i32 parse_file(FILE *handle)
 	do {
 		++info->lno, info->arg_set = 0, info->arg = 0;
 		info->ln = NULL, info->lnlen = 0;
-		info->ln = fgets(ln, 50, handle);
+		info->ln = fgets(ln, 5000, handle);
 		/* getline(&info->ln, &info->lnlen, handle); */
 		if (info->ln == NULL)
 			break;
