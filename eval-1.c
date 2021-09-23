@@ -10,7 +10,7 @@
  */
 void bop_swap(stack_t **stack, u32 lno)
 {
-	stack_t *top = Pile->top, *prev = top->prev;
+	stack_t *top = Pile->top, *prev = top == NULL ? NULL : top->prev;
 
 	(void) stack, (void) lno;
 	if (Pile->len < 2)
