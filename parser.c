@@ -30,12 +30,12 @@ static instruction_t instruction_set[] = {
 };
 
 /**
- * is_num - checks if a string only has digits
+ * is_digs - checks if a string only has digits
  * @str: a string
  *
  * Return: 1 if `str` only has digits, else 0
  */
-char is_num(char *str)
+char is_digs(char *str)
 {
 	if (str != NULL)
 		for (; *str >= '0' && *str <= '9'; ++str)
@@ -85,7 +85,7 @@ i32 parse_file(FILE *handle)
 		bop = strtok(info->ln, " \n");
 		arg_str = strtok(NULL, " \n");
 
-		if (arg_str != NULL && is_num(arg_str))
+		if (arg_str != NULL && is_digs(arg_str + (*arg_str == '-')))
 			info->arg_set = 1, info->arg = atoi(arg_str);
 		for (i = 0; instruction_set[i].opcode != NULL; ++i)
 		{

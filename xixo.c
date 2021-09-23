@@ -25,7 +25,7 @@ stack_t *xixo_push(i32 v)
 	stack_t *node = malloc(sizeof(stack_t) * 1);
 
 	if (node == NULL)
-		free(node), throw(ERR_NO_MEM, NULL);
+		throw(ERR_NO_MEM, NULL);
 	++data->len;
 	node->n = v;
 	node->next = NULL;
