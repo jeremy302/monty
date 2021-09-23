@@ -37,6 +37,7 @@ static instruction_t instruction_set[] = {
  */
 char is_digs(char *str)
 {
+	return (*str >= '0' && *str <= '9');
 	if (str != NULL)
 		for (; *str >= '0' && *str <= '9'; ++str)
 			if (str[1] == '\0')
@@ -78,12 +79,12 @@ i32 parse_file(FILE *handle)
 			break;
 		while (*info->ln == ' ' || *info->ln == '\t')
 			++info->ln;
-		if (*info->ln == '#' || *info->ln == '\n')
+		if (*info->ln == '#' || *info->ln == '\n' || *info->ln == '\0')
 			continue;
 		else if (*info->ln == '\0')
 			break;
-		bop = strtok(info->ln, " \n");
-		arg_str = strtok(NULL, " \n");
+		bop = strtok(info->ln, " \t\n");
+		arg_str = strtok(NULL, " \t\n");
 
 		if (arg_str != NULL &&
 			is_digs(arg_str + (*arg_str == '-' || *arg_str == '+')))
