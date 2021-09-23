@@ -16,7 +16,7 @@ void bop_pchar(stack_t **stack, u32 lno)
 	(void) stack, (void) lno;
 	if (top == NULL)
 		throw(ERR_BOP_PCHAR_EMP, NULL);
-	else if (top->n < 0 || top->n > 127)
+	else if (top->n < 0 || top->n > 255)
 		throw(ERR_BOP_PCHAR_INV, NULL);
 	printf("%c\n", top->n);
 }
