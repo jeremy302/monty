@@ -85,7 +85,8 @@ i32 parse_file(FILE *handle)
 		bop = strtok(info->ln, " \n");
 		arg_str = strtok(NULL, " \n");
 
-		if (arg_str != NULL && is_digs(arg_str + (*arg_str == '-')))
+		if (arg_str != NULL &&
+			is_digs(arg_str + (*arg_str == '-' || *arg_str == '+')))
 			info->arg_set = 1, info->arg = atoi(arg_str);
 		for (i = 0; instruction_set[i].opcode != NULL; ++i)
 		{
