@@ -65,11 +65,12 @@ void bop_add(stack_t **stack, u32 lno)
  */
 void bop_sub(stack_t **stack, u32 lno)
 {
-	i32 v = xixo_pop();
+	i32 v;
 
 	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_SUB, NULL);
+	v = xixo_pop();
 	Pile->top->n = Pile->top->n - v;
 }
 
@@ -82,10 +83,11 @@ void bop_sub(stack_t **stack, u32 lno)
  */
 void bop_mul(stack_t **stack, u32 lno)
 {
-	i32 v = xixo_pop();
+	i32 v;
 
 	(void) stack, (void) lno;
 	if (Pile->len < 2)
 		throw(ERR_BOP_MUL, NULL);
+	v = xixo_pop();
 	Pile->top->n = Pile->top->n * v;
 }
