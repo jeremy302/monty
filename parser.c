@@ -37,7 +37,6 @@ static instruction_t instruction_set[] = {
  */
 char is_digs(char *str)
 {
-	return (*str >= '0' && *str <= '9');
 	if (str != NULL)
 		for (; *str >= '0' && *str <= '9'; ++str)
 			if (str[1] == '\0')
