@@ -16,7 +16,8 @@ int main(int argc, char *argv[])
 	hd = fopen(argv[1], "r");
 	if (hd == NULL)
 		throw(ERR_SCRIPT_PERM, argv[1]);
-	return (parse_file(hd));
+	quit(parse_file(hd));
+	return (EXIT_SUCCESS);
 }
 
 /**
@@ -29,5 +30,8 @@ void quit(u32 status)
 {
 	while (Pile->top != NULL)
 		xixo_pop();
+	Pile->top = NULL, Pile->bot = NULL;
+	if (Parser->hndl != NULL)
+		fclose(Parser->hndl);
 	exit(status);
 }

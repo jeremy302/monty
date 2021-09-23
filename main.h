@@ -79,7 +79,7 @@ typedef enum XIXO
  */
 typedef struct ParserInfo
 {
-	i32 hndl;
+	FILE *hndl;
 	u32 lno;
 	char *ln;
 	size_t lnlen;

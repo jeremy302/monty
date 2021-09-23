@@ -1,4 +1,3 @@
-#define _GNU_SOURCE
 #include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
@@ -52,7 +51,7 @@ char is_num(char *str)
  */
 ParserInfo *parser_info()
 {
-	static ParserInfo info = { 0, 0, NULL, 0, 0, 0 };
+	static ParserInfo info = { NULL, 0, NULL, 0, 0, 0 };
 
 	return (&info);
 }
@@ -67,12 +66,14 @@ i32 parse_file(FILE *handle)
 {
 	ParserInfo *info = parser_info();
 	i32 i = 0;
-	char *bop, *arg_str;
+	char *bop, *arg_str, ln[5001];
 
+	info->hndl = handle;
 	do {
 		++info->lno, info->arg_set = 0, info->arg = 0;
 		info->ln = NULL, info->lnlen = 0;
-		getline(&info->ln, &info->lnlen, handle);
+		info->ln = fgets(ln, 50, handle);
+		/* getline(&info->ln, &info->lnlen, handle); */
 		if (info->ln == NULL)
 			break;
 		while (*info->ln == ' ' || *info->ln == '\t')
